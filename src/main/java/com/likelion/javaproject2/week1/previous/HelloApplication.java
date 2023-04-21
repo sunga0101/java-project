@@ -1,4 +1,4 @@
-package com.likelion.javaproject2;
+package com.likelion.javaproject2.week1.previous;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

@@ -5,4 +5,6 @@ module com.likelion.javaproject2 {
 
     opens com.likelion.javaproject2 to javafx.fxml;
     exports com.likelion.javaproject2;
+    exports com.likelion.javaproject2.week1.previous;
+    opens com.likelion.javaproject2.week1.previous to javafx.fxml;
 }
