@@ -22,5 +22,6 @@ public class SpaceInvaderMemberVariable {
         spaceInvaderMemberVariable.moveRight();
         spaceInvaderMemberVariable.moveRight();
         spaceInvaderMemberVariable.moveRight();
+        System.out.printf("최종위치: %d", spaceInvaderMemberVariable.location);
     }
 }
