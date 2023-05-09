@@ -16,6 +16,6 @@ public class MultiplicationTable {
     public static void main(String[] args) {
         MultiplicationTable danTwo = new MultiplicationTable("*");
         danTwo.printDan(2);
-가
+
     }
 }
