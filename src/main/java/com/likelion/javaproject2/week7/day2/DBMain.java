@@ -1,17 +1,45 @@
 package com.likelion.javaproject2.week7.day2;
 import com.likelion.javaproject2.week7.day2.model.BaseDAO;
+import com.likelion.javaproject2.week7.day2.model.Person;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class DBMain extends BaseDAO {
     public static void main(String[] args) {
         DBMain dbMain = new DBMain();
-//        dbMain.initPerson();
+        dbMain.initPerson();
         dbMain.insertPerson("!!");
-        dbMain.insertPerson("mini");
-        dbMain.insertPerson("jimin");
+        System.out.println(dbMain.insertPerson("mini"));
+        System.out.println(dbMain.insertPerson("jimin"));
+
+        List<Person> personList = dbMain.findAllPerson();
+        System.out.println(personList.toString());
     }
+
+    private List<Person> findAllPerson() {
+        List<Person> result = new ArrayList<>();
+        String sql = "select id, name  from person";
+        try {
+            getConn();
+            psmt = conn.prepareStatement(sql);
+            rs = psmt.executeQuery();
+            while( rs.next() ) {
+                int id = rs.getInt("id"); // int 타입
+                String name = rs.getString("name");
+                result.add(new Person(id,name)); // 생성자
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            close();
+        }
+        return result;  // Person.java에서 toString을 overide
+    }
+
+
     private int insertPerson(String name) {
         int cnt = 0;
         String sql = "insert into person(name) values(?)";
@@ -68,4 +96,6 @@ public class DBMain extends BaseDAO {
              close();
          }
     }
+
+
 }
