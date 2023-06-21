@@ -2,8 +2,6 @@ module com.likelion.javaproject2 {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
-    requires junit;
-    requires org.junit.jupiter.api;
 
 
     opens com.likelion.javaproject2 to javafx.fxml;
